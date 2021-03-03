@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Une appli nulle</string>
+    <string name="welcome_msg">Bienvenue !</string>
+    <string name="create_image_msg">Voir un chien !</string>
+    <string name="jokes_msg">Lire des blagues !</string>
+    <string name="jokes_reload">Secouez votre téléphone pour avoir de nouvelles blagues !</string>
+    <string name="loading">Chargement …</string>
+    <string name="dog_msg">Woof !</string>
+
+</resources>
