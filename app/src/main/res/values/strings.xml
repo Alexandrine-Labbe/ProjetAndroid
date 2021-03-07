@@ -1,10 +1,19 @@
 <resources>
     <string name="app_name">Une appli nulle</string>
+    <string name="app_desc_msg">Une appli nulle mais qui donne le sourire quand on est triste 😊<br/> Au programme, blagues et chiens à gogo !</string>
     <string name="welcome_msg">Bienvenue !</string>
     <string name="create_image_msg">Voir un chien !</string>
+    <string name="new_image_msg">Voir un autre chien !</string>
+    <string name="download_image_msg">Télécharger !</string>
     <string name="jokes_msg">Lire des blagues !</string>
     <string name="jokes_reload">Secouez votre téléphone pour avoir de nouvelles blagues !</string>
     <string name="loading">Chargement …</string>
     <string name="dog_msg">Woof !</string>
+    <string name="error_msg">Erreur</string>
+    <string name="loading_error_msg">Erreur de chargement …</string>
+    <string name="downloading_error_msg">Erreur de téléchargement …</string>
+    <string name="downloading_starting_msg">Début du téléchargement …</string>
+    <string name="error_network">Non connecté à internet</string>
+    <string name="error_query">Erreur de requête</string>
 
 </resources>

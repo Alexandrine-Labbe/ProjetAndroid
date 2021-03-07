@@ -38,5 +38,30 @@
         android:layout_centerHorizontal="true"
         android:layout_height="match_parent"/>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
 
+        <Button
+            android:id="@+id/new_image_btn"
+            android:text="@string/new_image_msg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:layout_marginHorizontal="2dp"
+
+            />
+
+        <Button
+            android:id="@+id/download_image_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:text="@string/download_image_msg"
+            android:layout_marginHorizontal="2dp"
+            />
+
+    </LinearLayout>
 </RelativeLayout>
