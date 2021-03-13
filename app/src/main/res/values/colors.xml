@@ -6,5 +6,13 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="dark_grey">#1C2833</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue_dragon">#88F8D8</color>
+    <color name="dark_blue_dragon">#17D9C3</color>
+    <color name="darker_blue_dragon">#007EA8</color>
+    <color name="light_pink">#F7D3F9</color>
+    <color name="slightly_darker_pink">#EFB9F2</color>
+
+
 </resources>

@@ -20,7 +20,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:textSize="30sp"
-        android:textColor="@color/black"
 
         />
 
@@ -29,7 +28,6 @@
         android:layout_height="wrap_content"
         android:text="@string/app_desc_msg"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
         android:layout_marginTop="50dp"
         android:textAlignment="center"
         android:layout_below="@+id/welcome"

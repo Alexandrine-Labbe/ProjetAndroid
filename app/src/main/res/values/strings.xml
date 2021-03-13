@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Une appli nulle</string>
+    <string name="app_name">Une super appli !</string>
     <string name="app_desc_msg">Une appli nulle mais qui donne le sourire quand on est triste 😊<br /> Au programme, blagues et chiens à gogo !</string>
     <string name="welcome_msg">Bienvenue !</string>
     <string name="create_image_msg">Voir un chien !</string>
-    <string name="create_event_msg">Plannifier un moment détente !</string>
+    <string name="create_event_msg">Planifier un moment détente !</string>
     <string name="new_image_msg">Voir un autre chien !</string>
     <string name="download_image_msg">Télécharger !</string>
     <string name="jokes_msg">Lire des blagues !</string>
@@ -18,7 +18,7 @@
     <string name="error_query">Erreur de requête</string>
     <string name="date_label_set">Cliquer pour sélectionner une date : </string>
     <string name="validate_event">Créer l\'événement : </string>
-    <string name="spinner_title">Selectioner un événement : </string>
+    <string name="spinner_title">Selectionner un événement : </string>
     <string name="event_added">Événement ajouté ! </string>
 
     <string-array name="events_array">
@@ -32,9 +32,9 @@
     <string-array name="events_desc_array">
         <item>Va te détendre en prenant une bonne douche ou un bain bien chaud ! ça réchauffe et détend les muscles !</item>
         <item>Va lire des blagues ! ça rend toujours de bonne humeur et tu as une super appli avec des blagues ! Comme par hasard !</item>
-        <item>Va tegarder des photos d\'animaux mignons ! Quoi de mieux pour être de bonne humeur ? Tu as des même une appli avec des photos de chiens ! Quelle chance !</item>
+        <item>Va regarder des photos d\'animaux mignons ! Quoi de mieux pour être de bonne humeur ? Tu as des même une appli avec des photos de chiens ! Quelle chance !</item>
         <item>Va te faire une petite beauté, ça fait toujours du bien à l\'estime et au moral !</item>
-        <item>Va te remplir le ventre avec tes plats préférer !</item>
+        <item>Va te remplir le ventre avec tes plats préférés !</item>
     </string-array>
 
 </resources>
