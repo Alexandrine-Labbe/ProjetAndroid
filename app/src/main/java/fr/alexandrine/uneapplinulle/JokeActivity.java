@@ -3,7 +3,6 @@ package fr.alexandrine.uneapplinulle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,7 +17,6 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -59,44 +57,37 @@ public class JokeActivity extends AppCompatActivity {
             String url = "https://v2.jokeapi.dev/joke/Any?type=single&amount=10";
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response)
-                        {
-                            Log.d(TAG, "Response" + response);
+                    (Response.Listener<String>) response -> {
+                        Log.d(TAG, "Response" + response);
 
-                            try {
-                                JSONObject listOfJokesObject = new JSONObject(response);
-                                JSONArray listOfJokes = new JSONArray(listOfJokesObject.getString("jokes"));
+                        try {
+                            JSONObject listOfJokesObject = new JSONObject(response);
+                            JSONArray listOfJokes = new JSONArray(listOfJokesObject.getString("jokes"));
 
-                                JSONObject jsonItem;
-                                Joke joke;
-                                for (int i = 0; i < listOfJokes.length(); i++)
-                                {
-                                    jsonItem = listOfJokes.getJSONObject(i);
+                            JSONObject jsonItem;
+                            Joke joke;
+                            for (int i = 0; i < listOfJokes.length(); i++)
+                            {
+                                jsonItem = listOfJokes.getJSONObject(i);
 
-                                    joke = new Joke(
-                                            jsonItem.getInt("id"),
-                                            jsonItem.getString("category"),
-                                            jsonItem.getString("joke")
-                                    );
-                                    jokes.add(joke);
-                                }
-
-                                ListView listView = (ListView) findViewById(R.id.listView);
-                                AdapterForJokes adapterForJokes = new AdapterForJokes(JokeActivity.this, jokes);
-                                listView.setAdapter(adapterForJokes);
-                            } catch (JSONException e) {
-                                Log.e(TAG, "Error while parsing jokes result", e);
+                                joke = new Joke(
+                                        jsonItem.getInt("id"),
+                                        jsonItem.getString("category"),
+                                        jsonItem.getString("joke")
+                                );
+                                jokes.add(joke);
                             }
+
+                            ListView listView = (ListView) findViewById(R.id.listView);
+                            AdapterForJokes adapterForJokes = new AdapterForJokes(JokeActivity.this, jokes);
+                            listView.setAdapter(adapterForJokes);
+                        } catch (JSONException e) {
+                            Log.e(TAG, "Error while parsing jokes result", e);
                         }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Erreur de requête", Toast.LENGTH_LONG);
-                    toast.show();
-                }
-            });
+                    }, (Response.ErrorListener) error -> {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Erreur de requête", Toast.LENGTH_LONG);
+                        toast.show();
+                    });
             queue.add(stringRequest);
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Non connecté à internet", Toast.LENGTH_LONG);
@@ -135,15 +126,5 @@ public class JokeActivity extends AppCompatActivity {
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
-//    @Override
-//    protected void onResume() {
-//        mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-//                SensorManager.SENSOR_DELAY_NORMAL);
-//        super.onResume();
-//    }
-//    @Override
-//    protected void onPause() {
-//        mSensorManager.unregisterListener(mSensorListener);
-//        super.onPause();
-//    }
+
 }

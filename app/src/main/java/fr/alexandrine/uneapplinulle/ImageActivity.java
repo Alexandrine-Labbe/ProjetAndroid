@@ -19,8 +19,6 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -52,13 +50,9 @@ public class ImageActivity extends AppCompatActivity {
         newImage = (Button) findViewById(R.id.new_image_btn);
         downloadImage = (Button) findViewById(R.id.download_image_btn);
 
-        newImage.setOnClickListener(view -> {
-            loadImage();
-        });
+        newImage.setOnClickListener(view -> loadImage());
 
-        downloadImage.setOnClickListener(view -> {
-            downloadImageNew(imageUrl);
-        });
+        downloadImage.setOnClickListener(view -> downloadImageNew(imageUrl));
 
     }
 
@@ -83,56 +77,49 @@ public class ImageActivity extends AppCompatActivity {
                 String url = "https://dog.ceo/api/breeds/image/random";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response)
-                            {
-                                Log.d(TAG, "Response" + response);
+                        response -> {
+                            Log.d(TAG, "Response" + response);
 
-                                try {
-                                    JSONObject listOfJokesObject = new JSONObject(response);
-                                    imageUrl = listOfJokesObject.getString("message");
-                                    TextView loadingTextView = findViewById(R.id.loadingTextView);
+                            try {
+                                JSONObject listOfJokesObject = new JSONObject(response);
+                                imageUrl = listOfJokesObject.getString("message");
+                                TextView loadingTextView = findViewById(R.id.loadingTextView);
 
-                                    imageLoader.displayImage(imageUrl, doggoImageView, new ImageLoadingListener() {
+                                imageLoader.displayImage(imageUrl, doggoImageView, new ImageLoadingListener() {
 
-                                        @Override
-                                        public void onLoadingStarted(String imageUri, View view) {
-                                            loadingTextView.setVisibility(View.VISIBLE);
-                                            loadingTextView.setText(R.string.loading);
-                                        }
+                                    @Override
+                                    public void onLoadingStarted(String imageUri, View view) {
+                                        loadingTextView.setVisibility(View.VISIBLE);
+                                        loadingTextView.setText(R.string.loading);
+                                    }
 
-                                        @Override
-                                        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-                                            loadingTextView.setText(R.string.error_msg);
-                                            Toast.makeText(getApplicationContext(), R.string.loading_error_msg, Toast.LENGTH_LONG).show();
-                                        }
+                                    @Override
+                                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                                        loadingTextView.setText(R.string.error_msg);
+                                        Toast.makeText(getApplicationContext(), R.string.loading_error_msg, Toast.LENGTH_LONG).show();
+                                    }
 
-                                        @Override
-                                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                                    @Override
+                                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
 
-                                            loadingTextView.setVisibility(View.GONE);
-                                        }
+                                        loadingTextView.setVisibility(View.GONE);
+                                    }
 
-                                        @Override
-                                        public void onLoadingCancelled(String imageUri, View view) {
+                                    @Override
+                                    public void onLoadingCancelled(String imageUri, View view) {
 
-                                        }
-                                    });
+                                    }
+                                });
 
 
 
-                                } catch (JSONException e) {
-                                    Log.e(TAG, "Error while parsing jokes result", e);
-                                }
+                            } catch (JSONException e) {
+                                Log.e(TAG, "Error while parsing jokes result", e);
                             }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast toast = Toast.makeText(getApplicationContext(), R.string.error_query, Toast.LENGTH_LONG);
-                        toast.show();
-                    }
-                });
+                        }, error -> {
+                            Toast toast = Toast.makeText(getApplicationContext(), R.string.error_query, Toast.LENGTH_LONG);
+                            toast.show();
+                        });
                 queue.add(stringRequest);
             } else {
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.error_network, Toast.LENGTH_SHORT);

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Une super appli !</string>
-    <string name="app_desc_msg">Une appli nulle mais qui donne le sourire quand on est triste 😊<br /> Au programme, blagues et chiens à gogo !</string>
+    <string name="app_desc_msg">Une super nulle qui donne le sourire quand on est triste 😊<br /> Au programme, blagues et chiens à gogo !<br />Et pourquoi ne pas se planifier un moment de détente ?</string>
     <string name="welcome_msg">Bienvenue !</string>
     <string name="create_image_msg">Voir un chien !</string>
     <string name="create_event_msg">Planifier un moment détente !</string>
