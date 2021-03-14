@@ -54,7 +54,7 @@ public class JokeActivity extends AppCompatActivity {
         {
             Log.d(TAG, "Connected to internet");
 
-            String url = "https://v2.jokeapi.dev/joke/Any?type=single&amount=10";
+            String url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=10";
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     (Response.Listener<String>) response -> {
